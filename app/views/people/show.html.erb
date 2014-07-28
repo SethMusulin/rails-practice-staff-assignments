@@ -1,1 +1,3 @@
-Show page for <%= @person.first_name %> <%= @person.last_name %>
+<h2> Show page for <%= @person.first_name %> <%= @person.last_name %></h2>
+
+<p><%= link_to "Edit Person", edit_person_path(@person.id) %> 

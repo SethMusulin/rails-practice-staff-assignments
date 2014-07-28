@@ -21,4 +21,15 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
   end
 
+  def edit
+    @person = Person.find(params[:id])
+  end
+
+  def update
+    @person = Person.find(params[:id])
+    @person.update_attributes(params.require(:person).permit(:first_name, :last_name, :title))
+    if @person.save
+      redirect_to root_path
+    end
+  end
 end
