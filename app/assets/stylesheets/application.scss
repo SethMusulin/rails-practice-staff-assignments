@@ -36,8 +36,11 @@ html, body {
 main {
   .container {
     background: white;
+    }
+    li {
+      list-style-type: none;
+    }
   }
-}
 
 .logo {
   float: left;

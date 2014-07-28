@@ -30,6 +30,8 @@ class PeopleController < ApplicationController
     @person.update_attributes(params.require(:person).permit(:first_name, :last_name, :title))
     if @person.save
       redirect_to root_path
+    else
+      render :edit
     end
   end
 end

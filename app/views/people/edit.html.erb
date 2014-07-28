@@ -1,4 +1,12 @@
+<h2>Edit Person</h2>
+
+
 <%= form_for @person do |f| %>
+    <%@person.errors.messages.values.each do |msg| %>
+        <%msg.each do  |m| %>
+            <li><%= m %></li>
+        <%end %>
+    <% end %>
 
     <div class="form-row">
       <%= f.label :title %>
