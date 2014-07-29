@@ -1,12 +1,16 @@
 <h1>Add a Staff Member</h1>
 
+<% flash.each do |name, msg| -%>
+<h3> <%= content_tag :div, msg, class: name %> </h3>
+<% end -%>
 
 <%= form_for @person do |f| %>
     <%@person.errors.messages.values.each do |msg| %>
         <%msg.each do  |m| %>
-            <li><%= m %></li>
+            <li class="errors"><%= m %></li>
         <%end %>
     <% end %>
+
   <div class="form-row">
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true, placeholder: "i.e. Dr." %>

@@ -24,7 +24,7 @@ feature 'User' do
 
     click_link("Some")
 
-    expect(page).to have_content("Show page for Some User")
+    expect(page).to have_content("Some User")
 
   end
 

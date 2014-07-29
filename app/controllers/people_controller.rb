@@ -13,6 +13,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to root_path, notice: "Person was created!"
     else
+
       render :new
     end
   end
@@ -31,6 +32,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to root_path
     else
+      flash[:errors] = "Person Could not be created"
       render :edit
     end
   end

@@ -5,15 +5,19 @@
   <thead>
   <tr>
     <th>Name</th>
+    <th>Location</th>
   </tr>
   </thead>
   <tbody>
   <% @people.each do |person| %>
     <tr>
       <td>
-        <%= link_to person.title, person_path(person.id) %> <%= link_to person.first_name,person_path(person.id) %> <%= link_to person.last_name, person_path(person.id) %>
+        <%= link_to "#{person.title}#{person.first_name}#{person.last_name}", person_path(person.id) %>
       </td>
-    </tr>
+    <td>
+      <%= person.assignments.count %>
+    </td>
+  </tr>
   <% end %>
   </tbody>
 </table>

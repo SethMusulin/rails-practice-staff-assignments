@@ -1,0 +1,18 @@
+<h2> Assign <%= @person.first_name %> <%= @person.last_name %> to a Location </h2>
+<% flash.each do |name, msg| -%>
+    <h3> <%= content_tag :div, msg, class: name %></h3>
+<% end -%>
+
+
+<%= form_for [@person, @assignment] do |f| %>
+    <% @assignment.errors.full_messages.each do |message| %>
+        <div class="errors"><%= message %></div>
+    <% end %>
+
+    <%= f.label :location_id %>
+    <%= f.collection_select :location_id, Location.all, :id, :name, prompt: true %>
+   <p> <%= f.label :role %>
+    <%= f.text_field :role%></p>
+    <%= f.submit "Assign", class: "assignment-button" %>
+<% end %>
+

@@ -1,5 +1,8 @@
 class Person < ActiveRecord::Base
 
+  has_many :assignments
+  has_many :locations, through: :assignments
+
   validate :first_name_or_title
 
 

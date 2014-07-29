@@ -1,12 +1,17 @@
 <h2>Edit Person</h2>
+<h3> <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+  <% end -%>
+</h3>
 
+<%@person.errors.messages.values.each do |msg| %>
+    <%msg.each do  |m| %>
+        <li class="errors"><%= m %></li>
+    <%end %>
+<% end %>
 
 <%= form_for @person do |f| %>
-    <%@person.errors.messages.values.each do |msg| %>
-        <%msg.each do  |m| %>
-            <li><%= m %></li>
-        <%end %>
-    <% end %>
+
 
     <div class="form-row">
       <%= f.label :title %>

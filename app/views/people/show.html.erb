@@ -1,3 +1,29 @@
-<h2> Show page for <%= @person.first_name %> <%= @person.last_name %></h2>
+<h2> <%= @person.first_name %> <%= @person.last_name %></h2>
 
-<p><%= link_to "Edit Person", edit_person_path(@person.id) %> 
+<p><%= link_to "Edit Person", edit_person_path(@person.id) %>
+<h3> Locations </h3>
+<div class="location-link"><%= link_to "+ Add Location", new_person_assignment_path(@person.id) %></div>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Location</th>
+    <th>Role</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @person.assignments.each do |assignment| %>
+      <tr>
+        <td>
+          <%= assignment.location.name %>
+        </td>
+        <td>
+          <%= assignment.role %>
+        </td>
+        <td>
+          <%= link_to "edit", edit_person_assignment_path(assignment.person, assignment.id) %>   <%= link_to "delete", person_assignment_path(assignment.person, assignment), method: :delete, data: {confirm: "Are you sure?"} %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

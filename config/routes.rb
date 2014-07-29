@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   get "signout" => "sessions#destroy", as: :signout
 
   resources :locations, only: :index
-  resources :people
+  resources :people do
+    resources :assignments
+  end
+
 end
