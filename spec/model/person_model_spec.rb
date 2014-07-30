@@ -11,6 +11,14 @@ describe Person do
 
     person.first_name = ""
     expect(person).to_not be_valid
+
+    person.title = "Mr."
+    person.first_name = "Jumex"
+    expect(person).to be_valid
+
+    person.last_name = ""
+    expect(person).to_not be_valid
+
   end
 end
 

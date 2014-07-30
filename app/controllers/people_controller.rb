@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to root_path
     else
-      flash[:errors] = "Person Could not be created"
+      flash.now[:errors] = "Person Could not be updated"
       render :edit
     end
   end

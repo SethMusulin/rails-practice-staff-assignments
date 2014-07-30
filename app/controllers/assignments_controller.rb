@@ -11,7 +11,7 @@ end
     if @assignment.save
     redirect_to person_path(@person)
     else
-      flash[:errors] = "This Assignment not be created"
+      flash.now[:errors] = "This Assignment not be created"
       render :new
   end
   end
@@ -27,7 +27,7 @@ end
     if @assignment.save
       redirect_to person_path(params[:person_id])
     else
-      flash[:errors] = "This Assignment not be created"
+      flash.now[:errors] = "This Assignment not be updated"
       render :edit
     end
   end
